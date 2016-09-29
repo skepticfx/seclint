@@ -4,14 +4,16 @@
   "description": "A javascript dom security linter",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "./seclint.js test/"
   },
+  "repository": "https://github.com/skepticfx/seclint",
   "bin": {
     "seclint": "./seclint.js"
   },
   "author": "Ahamed Nafeez",
   "license": "MIT",
   "dependencies": {
+    "chalk": "^1.1.3",
     "eslint": "^3.6.1",
     "esutils": "^2.0.2"
   }

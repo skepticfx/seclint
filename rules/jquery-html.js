@@ -1,5 +1,5 @@
 /**
- * @fileoverview Rule to flag use of jQuery.append()
+ * @fileoverview Rule to flag use of jQuery.html()
  * @author Nafeez
  */
 "use strict";
@@ -20,7 +20,7 @@ const getPropertyName = require("../lib/ast-utils").getStaticPropertyName;
  * @returns {boolean} Whether or not the name is prohibited.
  */
 function isAppend(name) {
-  return name === "append";
+  return name === "html";
 }
 
 function isDynamicArgument(args){
@@ -48,7 +48,7 @@ module.exports = function(context) {
       if (callee.type === "MemberExpression") {
         const identifierName = getPropertyName(callee);
         if (isAppend(identifierName) && isDynamicArgument(node.arguments)) {
-          context.report(node, "Possible use of jQuery.append()");
+          context.report(node, "Possible use of jQuery.html()");
         }
       }
     }

@@ -1,0 +1,18 @@
+{
+  "name": "seclint",
+  "version": "1.0.0",
+  "description": "A javascript dom security linter",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "seclint": "./seclint.js"
+  },
+  "author": "Ahamed Nafeez",
+  "license": "MIT",
+  "dependencies": {
+    "eslint": "^3.6.1",
+    "esutils": "^2.0.2"
+  }
+}

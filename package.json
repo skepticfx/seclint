@@ -1,6 +1,6 @@
 {
   "name": "seclint",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "A javascript dom security linter",
   "main": "index.js",
   "scripts": {

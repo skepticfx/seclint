@@ -5,7 +5,8 @@ var cli = new CLIEngine({
   rulePaths: [__dirname + "/rules"],
   rules: {
     "jquery-append": 2,
-    "jquery-html": 2
+    "jquery-html": 2,
+    "window-eval": 2
   }
 });
 

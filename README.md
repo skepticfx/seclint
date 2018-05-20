@@ -1,27 +1,39 @@
 # seclint
 A simple linter to warn about javascript dom issues et al.
 
+## What is this?
 
-## License
+Lets say you are security reviewing a single JavaScript file or a folder full of *.js files.
+Most often you would want to just know the unsafe API usages and then dig your own way into finding security issues(if at all it exists)
 
-The MIT License
+Seclint tries to do that for Javascript with the vanilla DOM, React and Angular.
+The table below lists the unsafe APIs which most often leads you to discovering vulnerabilities.
 
-Copyright (c) Ahamed Nafeez <ahamed.nafeez@gmail.com>
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, inclu ding without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+## Installation
 
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
+```
+npm install -g seclint
+```
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
+## Usage
+
+```
+seclint <js-folder>
+```
+
+## TODO
+
+* Configure options through a file
+* Add React, Angular unsafe usages
+
+
+## Current tests
+
+| API Name | Tips | Example Usage |
+|---------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------|
+| jQuery Append | Most often this is used for legitimate purposes. However, there are instances when a developer might accidentally assign unsafe inputs here. This tool tries to reduce the false positives by doing simple heuristics, but no taint analysis.The Return on Investment is not that great.  | $(some_div).append(some_$_div) |
+| jQuery HTML | This is similar to jQuery Append  | $(some_div).html(some_$_div) |
+
+
+
